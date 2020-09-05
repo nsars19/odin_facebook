@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :friendships, dependent: :destroy
-  has_many :friends, through: :friendships       
+  has_many :accepted_friendships, -> { Friendship.accepted_friendships }, class_name: "Friendship"
+  has_many :pending_friendships, -> { Friendship.pending_friendships }, class_name: "Friendship"
+  has_many :friends, through: :accepted_friendships
 end
