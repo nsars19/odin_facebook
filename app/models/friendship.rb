@@ -13,4 +13,9 @@ class Friendship < ApplicationRecord
     # Reciprocate request from other 'side' of friendship
     Friendship.create user_id: friend_id, friend_id: user_id
   end
+
+  def self.accept_friend_request user_id, friend_id
+    request = self.where(user_id: user_id, friend_id: friend_id)
+    request.accepted = true
+  end
 end
