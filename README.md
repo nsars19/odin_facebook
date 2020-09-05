@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a reconstruction of Facebook to demonstrate my knowledge of setting up complex back-ends. It is the final project for the Ruby on Rails section of the RoR curriculum from The Odin Project.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The project assignment can be found [here](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project?ref=lnav)
