@@ -20,14 +20,11 @@ class Friendship < ApplicationRecord
     Friendship.create user_id: user_id, friend_id: friend_id 
   end
 
-  def self.accept_friend_request receiver_id, sender_id
+  def self.accept_friend_request sender_id, receiver_id
     request = self.where(user_id: sender_id, friend_id: receiver_id, accepted: false)
-    request.each { |req| req.accepted = true }
+    request.each { |req| req.accepted = true; req.save }
 
-    Notification.create(
-      receiver_id: sender_id,
-      sender_id: receiver_id,
-      notifiable: request.last
-    )
+    # Ensure Friendship is reciprocal upon acceptance
+    Friendship.create(user_id: receiver_id, friend_id: sender_id, accepted: true)
   end
 end

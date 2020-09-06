@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
   has_many :sent_requests, class_name: "Friendship"
   has_many :received_requests, class_name: "Friendship", foreign_key: :friend_id
-  
   has_many :accepted_friendships, -> { Friendship.accepted_friendships }, class_name: "Friendship"
   has_many :pending_friendships, -> { Friendship.pending_friendships }, class_name: "Friendship"
   has_many :friends, through: :accepted_friendships
