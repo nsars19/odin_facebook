@@ -13,24 +13,21 @@ class Friendship < ApplicationRecord
     Notification.create(
       receiver_id: self.friend.id,
       sender_id: self.user.id,
-      notifiable: self
-      ) if self.accepted
+      notifiable: self)
   end
 
   def self.send_friend_request user_id, friend_id
-    # User who requests friendship defaults to accepting the Friend Request
-    Friendship.create user_id: user_id, friend_id: friend_id, accepted: true
-    # Reciprocate request from other 'side' of friendship
-    Friendship.create user_id: friend_id, friend_id: user_id
+    Friendship.create user_id: user_id, friend_id: friend_id 
   end
 
-  def self.accept_friend_request user_id, friend_id
-    request = self.where(user_id: user_id, friend_id: friend_id, accepted: false)
+  def self.accept_friend_request receiver_id, sender_id
+    request = self.where(user_id: sender_id, friend_id: receiver_id, accepted: false)
     request.each { |req| req.accepted = true }
 
     Notification.create(
-      receiver_id: friend_id,
-      sender_id: user_id,
-      notifiable: request.last)
+      receiver_id: sender_id,
+      sender_id: receiver_id,
+      notifiable: request.last
+    )
   end
 end
