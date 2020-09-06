@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :pending_friendships, -> { Friendship.pending_friendships }, class_name: "Friendship"
   has_many :friends, through: :accepted_friendships
   has_many :posts
+  has_many :likes
 end
