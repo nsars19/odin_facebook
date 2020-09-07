@@ -1,3 +1,5 @@
 <%= link_to "Home", home_path %>
 <%= link_to "My Profile", user_path(current_user) %>
+<%= link_to "Notifications", notifications_path %>
+(<%= current_user.notifications.unread.size %>)
 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
