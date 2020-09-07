@@ -11,5 +11,6 @@ class User < ApplicationRecord
   has_many :friends, through: :accepted_friendships
   has_many :posts
   has_many :likes
+  has_many :comments
   has_many :notifications, foreign_key: :receiver_id
 end
