@@ -1,0 +1,6 @@
+<% @notifications.each do |n| %>
+  <div>
+    <p><%= n.sender.email %></p>
+    <p><%= n.notifiable_type %></p>
+  </div>
+<% end %>
