@@ -13,4 +13,9 @@ class User < ApplicationRecord
   has_many :likes
   has_many :comments
   has_many :notifications, foreign_key: :receiver_id
+
+  def likes? post
+    likes = Like.where(user_id: self.id, post_id: post.id)
+    likes.any?
+  end
 end
