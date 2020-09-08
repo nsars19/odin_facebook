@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show]
   resources :notifications, only: :index
+  resources :posts, only: [:create, :index]
 end
