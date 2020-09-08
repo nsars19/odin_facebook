@@ -2,15 +2,24 @@
 <%= render 'form' %>
 
 <% @posts.each do |post| %>
-  <div>
+  <div style="border: 1px solid black;">
     <div>
       <p><%= post.user.name %> - <%= post.likes.count %> Likes</p>
       <p><%= post.body %></p>
     </div>
     <div>
+      <% if current_user.likes? post %>
+        <%= button_to "Like", post_like_path(post), method: :delete, remote: true %>
+      <% else %>
+        <%= button_to "Like", post_like_path(post), method: :post, remote: true %>
+      <% end %>
+    </div>
+    <div>
       <% post.comments.each do |comment| %>
-        <p><%= comment.user.name %><p>
-        <p><%= comment.text %></p>
+        <div style="border: 1px solid red">
+          <p><%= comment.user.name %><p>
+          <p><%= comment.text %></p>
+        </div>
       <% end %>
     </div>
   </div>
