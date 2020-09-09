@@ -7,8 +7,10 @@ class CommentsController < ApplicationController
       text: comment
     )
 
-    if @comment.save
-      redirect_back(fallback_location: 'posts/index')
+    respond_to do |format|
+      if @comment.save
+        format.js { render inline: "location.reload();" }
+      end
     end
   end
 end
