@@ -9,7 +9,7 @@ class Like < ApplicationRecord
 
     Notification.create(
       receiver_id: post_creator_id,
-      sender_id: self.user.id,
+      sender_id: self.user_id,
       notifiable: self
     )
   end
