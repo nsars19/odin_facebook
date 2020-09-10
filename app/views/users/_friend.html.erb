@@ -1,0 +1,7 @@
+<div>
+  <p>
+    <%= friend.name %><br />
+    <%= friend.email %><br />
+    <%= button_to "Send Friend Request", user_friendships_path(friend), method: :post, remote: :true %>
+  </p>  
+</div>
