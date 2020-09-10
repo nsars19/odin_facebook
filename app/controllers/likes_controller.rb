@@ -7,7 +7,11 @@ class LikesController < ApplicationController
 
     @like = Like.new(like_params)
 
-    @like.save 
+    respond_to do |format|
+      if @like.save
+        format.js { render inline: "location.reload();" }
+      end
+    end
   end
 
   def destroy
