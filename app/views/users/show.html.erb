@@ -1,10 +1,11 @@
 <%= render 'navbar' %>
 <div>
   <%= @user.name %><br />
-  <%= @user.email %>
+  <%= @user.email %><br />
 <div>
+  <%= render 'posts/form' %>
+</div>
 <div>
-  <% @posts.each do |post| %>
-    <%= render partial: 'feed', locals: { post: post } %>
-  <% end %>
-<div>
+  <%= render partial: 'post', collection: @posts %>
+</div>
+
