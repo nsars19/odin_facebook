@@ -6,7 +6,8 @@ class Friendship < ApplicationRecord
 
   scope :accepted_friendships, -> { where(accepted: true) }
   scope :pending_friendships, -> { where(accepted: false) }
-
+  scope :from_user, -> (user_id){ find_by(user_id: user_id) }
+  
   private
 
   def create_notification
