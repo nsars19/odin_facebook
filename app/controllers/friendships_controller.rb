@@ -10,6 +10,14 @@ class FriendshipsController < ApplicationController
     end
   end
 
+  def accept_friend_request
+    Friendship.accept_friend_request(params[:friend_id], params[:user_id])
+    
+    respond_to do |format|
+      format.js { render inline: "location.reload();" }
+    end
+  end
+
   private
 
   def already_requested?
