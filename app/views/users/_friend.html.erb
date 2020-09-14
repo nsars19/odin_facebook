@@ -2,6 +2,10 @@
   <p>
     <%= friend.name %><br />
     <%= friend.email %><br />
-    <%= button_to "Send Friend Request", user_friendships_path(friend), method: :post, remote: :true %>
+    <% if current_user.received_requests.include? Friendship.between friend.id, current_user.id %>
+      <%= button_to "Accept Friend Request", accept_request_path(user_id: current_user.id, friend_id: friend.id), remote: true %>
+    <% else %>
+      <%= button_to "Send Friend Request", user_friendships_path(friend), method: :post, remote: :true %>
+    <% end %>
   </p>  
 </div>
