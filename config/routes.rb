@@ -12,6 +12,4 @@ Rails.application.routes.draw do
     resources :comments
     resource :like, only: [:new, :create, :destroy]
   end
-
-  post 'accept_friend_request', to: 'friendships#accept_friend_request', as: 'accept_request'
 end
