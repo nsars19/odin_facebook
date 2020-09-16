@@ -1,6 +1,6 @@
 <div style="border: 1px solid black;">
   <div>
-    <p><%= post.user.name %> - 
+    <p><%= link_to post.user.name, user_path(post.user) %> - 
       <%= post.likes.count %>
       <%= post.likes.count == 1 ? "Like" : "Likes" %></p>
     <p><%= post.body %></p>
@@ -15,7 +15,7 @@
   <div>
     <% post.comments.each do |comment| %>
       <div style="border: 1px solid red">
-        <p><%= comment.user.name %><p>
+        <p><%= link_to comment.user.name, user_path(comment.user) %><p>
         <p><%= comment.text %></p>
       </div>
     <% end %>
