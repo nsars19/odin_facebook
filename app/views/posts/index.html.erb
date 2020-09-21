@@ -4,7 +4,7 @@
 <% @posts.each do |post| %>
   <div style="border: 1px solid black;">
     <div>
-      <p><%= post.user.name %> - <%= post.likes.count %> Likes</p>
+      <p><%= link_to post.user.name, user_path(post.user) %> - <%= post.likes.count %> Likes</p>
       <p><%= post.body %></p>
     </div>
     <div>
