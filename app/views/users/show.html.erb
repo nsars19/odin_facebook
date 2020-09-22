@@ -1,4 +1,9 @@
 <%= render 'navbar' %>
+<% if @user.avatar.attached? %>
+  <div>
+    <%= image_tag @user.avatar, size: '100x100' %>
+  </div>
+<% end %>  
 <div>
   <%= @user.name %><br />
   <%= @user.email %><br />
