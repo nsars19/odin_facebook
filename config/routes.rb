@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   root 'posts#index', as: 'home'
 
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations'
+  }
 
   resources :notifications, only: :index
   
