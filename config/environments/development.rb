@@ -63,4 +63,8 @@ Rails.application.configure do
 
   # Configure Active Storage to use Disk space for storage
   config.active_storage.service = :local
+
+  # Configure Letter Opener Gem
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
 end
