@@ -1,4 +1,6 @@
 class UserMailer < ApplicationMailer
+  include SendGrid
+  
   def welcome_email
     @user = params[:user]
     subject = 'Thanks for joining Odin Facebook!'
