@@ -95,4 +95,5 @@ Rails.application.configure do
   # Configure ActionMailer/SendGrid
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: "https://young-earth-27505.herokuapp.com/" }
+  config.action_mailer.perform_deliveries = true
 end
