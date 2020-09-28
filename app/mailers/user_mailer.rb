@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
   def welcome_email
     @user = params[:user]
     subject = 'Thanks for joining Odin Facebook!'
-    from = Email.new(email: 'welcome@odin_facebook.com')
+    from = Email.new(email: 'welcome@young-earth-27505.herokuapp.com')
     to = Email.new(email: @user.email)
     email_content = "Thanks for joining Odin Facebook, #{@user.name}! We hope you have a great time!"
     content = Content.new(type: 'text/plain', value: email_content)
