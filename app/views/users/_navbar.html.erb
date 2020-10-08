@@ -1,7 +1,12 @@
-<%= link_to "Home", home_path %>
-<%= link_to "Find Friends", users_path %>
-<%= link_to "My Profile", user_path(current_user) %>
-<%= link_to "Notifications", notifications_path %>
-(<%= current_user.notifications.unread.size %>)
-<%= link_to "Edit Profile", edit_user_registration_path(current_user) %>
-<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<nav>
+  <div class="wrapper">
+    <span class="nav nav-item item1"><%= link_to "Home", home_path %></span>
+    <span class="nav nav-item item2"><%= link_to "Find Friends", users_path %></span>
+    <span class="nav nav-item item3"><%= link_to "My Profile", user_path(current_user) %></span>
+    <span class="nav nav-item item4">
+      <%= link_to "Notifications", notifications_path %>
+    </span>
+    <span class="nav nav-item item5"><%= link_to "Edit Profile", edit_user_registration_path(current_user) %></span>
+    <span class="nav nav-item item6"><%= link_to "Logout", destroy_user_session_path, method: :delete %></span>
+  </div>
+</nav>  
