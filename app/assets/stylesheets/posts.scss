@@ -1,3 +1,50 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+textarea { resize: none; }
+
+// Form
+
+.form-wrapper {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .post-form {
+        background: rgba(128, 128, 128, 0.411);
+        border-radius: 4px;
+        width: 270px;
+        height: 90%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        textarea { border-radius: 7px;}
+        button { border-radius: 3px;}
+    }
+}
+
+// Posts
+.wrapper { 
+    width: 100vw;
+    border: 1px solid black;
+}
+
+.post-wrapper {
+    border: 1px solid black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.likes-count {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

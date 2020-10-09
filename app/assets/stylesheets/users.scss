@@ -1,10 +1,8 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-    margin: 0;
-}
-.wrapper {
+
+.nav-wrapper {
     background: rgba(58, 59, 59, 0.329);
     height: 40px;
     width: 100vw;
@@ -28,4 +26,14 @@ body {
     color: rgb(245, 244, 244);
     align-self: center;
     text-decoration: none;
+}
+
+.profile-header > *{
+    text-align: center;
+    padding: 5px;
+}
+
+.avatar img{
+    border: 2px solid rgba(128, 128, 128, 0.288);
+    border-radius: 3px;
 }

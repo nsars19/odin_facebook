@@ -1,5 +1,8 @@
-<%= form_with model: Post.new, url: posts_path, method: :post do |f| %>
-  <%= f.label "What's on your mind?" %><br />
-  <%= f.text_area :body %><br />
-  <%= f.submit "Create Post"%>
-<% end %>
+<div class="form-wrapper">
+  <div class="post-form">
+    <%= form_with model: Post.new, url: posts_path, method: :post do |f| %>
+      <%= f.text_area :body, placeholder: "What's on your mind?", size: "35x5"%><br />
+      <%= f.submit "Create Post"%>
+    <% end %>
+  </form>  
+</div>  
