@@ -1,8 +1,9 @@
 <%= render 'users/navbar' %>
-<%= render 'form' %>
-
+<div class="form-wrapper">
+  <%= render 'form' %>
+</div>
 <% @posts.each do |post| %>
-  <div class="wrapper">
+  <div class="wrapper post-full-wrapper">
     <div class="post-wrapper">
       <div class="post post-author">
         <p><%= link_to post.user.name, user_path(post.user) %></p>
@@ -11,28 +12,32 @@
         <p><%= post.body %></p>
       </div>
       <span class="likes-count">
-        <p>
-          <%= post.likes.count %>
-          <%= post.likes.count == 1 ? "Like" : "Likes" %>
-        </p>  
-        
-        <% if current_user.likes? post %>
-          <%= button_to "Like", post_like_path(post), method: :delete, remote: true %>
-        <% else %>
-          <%= button_to "Like", post_like_path(post), method: :post, remote: true %>
-        <% end %>
+        <div class="likes-wrapper">
+          <p>
+            <%= post.likes.count %>
+            <%= post.likes.count == 1 ? "Like" : "Likes" %>
+          </p>  
+          
+          <% if current_user.likes? post %>
+            <%= button_to "Like", post_like_path(post), method: :delete, remote: true %>
+          <% else %>
+            <%= button_to "Like", post_like_path(post), method: :post, remote: true %>
+          <% end %>
+        </div>  
       </span>
     </div>  
-    <div>
+    <div class="wrapper comments-wrapper">
       <% post.comments.each do |comment| %>
-        <div>
-          <p><%= link_to comment.user.name, user_path(comment.user) %><p>
-          <p><%= comment.text %></p>
+        <div class="comment post-comment">
+          <div class="comment-author">
+            <p><%= link_to comment.user.name, user_path(comment.user) %><p>
+          </div>
+          <div class="comment-text">
+            <p><%= comment.text %></p>
+          </div>
         </div>
       <% end %>
     </div>
-    <div>
-      <%= render partial: 'comments/form', locals: { post: post } %>
-    </div>
-  </div>
+    <%= render partial: 'comments/form', locals: { post: post } %>
+  </div>  
 <% end %>

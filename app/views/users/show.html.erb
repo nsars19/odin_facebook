@@ -11,10 +11,9 @@
     <%= @user.name %>
   </div>
 </span>  
-<div class="post-form"> 
+<div class="form-wrapper"> 
   <%= render 'posts/form' %>
 </div>  
-<div>
-  <%= render partial: 'post', collection: @posts %>
-</div>
+<%= render partial: 'post', collection: @posts %>
+
 

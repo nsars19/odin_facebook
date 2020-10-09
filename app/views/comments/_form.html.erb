@@ -1,4 +1,10 @@
-<%= form_with model: Comment.new, url: post_comments_path(post), method: :post do |f| %>
-  <%= f.text_field :comment %>
-  <%= f.submit "Submit Comment" %>
-<% end %>
+<span class="comment-form-wrapper">
+  <%= form_with model: Comment.new, url: post_comments_path(post), method: :post do |f| %>
+    <span class="comment-text-field">
+      <%= f.text_field :comment %>
+    </span>
+    <span class="comment-submit">
+      <%= f.submit "Submit Comment" %>
+    </span>
+  <% end %>
+</span>  
