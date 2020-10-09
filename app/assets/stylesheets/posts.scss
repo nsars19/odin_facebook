@@ -5,7 +5,6 @@
 textarea { resize: none; }
 
 // Form
-
 .form-wrapper {
     height: 150px;
     display: flex;
@@ -13,17 +12,17 @@ textarea { resize: none; }
     align-items: center;
 
     .post-form {
-        background: rgba(128, 128, 128, 0.411);
-        border-radius: 4px;
-        width: 270px;
-        height: 90%;
+        background: #5995DA;
+        box-shadow: 2px 3px 10px rgb(54, 54, 54);
+        border-radius: 8px;
+        width: 330px;
+        height: 85%;
 
         display: flex;
         justify-content: center;
         align-items: center;
 
-        textarea { border-radius: 7px;}
-        button { border-radius: 3px;}
+        textarea, button { border-radius: 5px;}
     }
 }
 
@@ -34,7 +33,7 @@ textarea { resize: none; }
 }
 
 .post-wrapper {
-    border: 1px solid black;
+    border: 1px solid red;
 
     display: flex;
     flex-direction: column;
